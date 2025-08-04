@@ -1,10 +1,28 @@
 <template>
-    <div class="asset-bar">
-        <NCollapse arrow-placement="right" :default-expanded-names="['svg', 'image', 'gif', 'json']">
-          
-            <NButton tag="div" type="primary" draggable="true" @click="onGraph(Types.GraphType.Rect)" class="drawStore">画库位</NButton>
+  <div class="asset-bar">
+    <NCollapse arrow-placement="right" :default-expanded-names="['svg', 'image', 'gif', 'json']">
+      <NButton
+        tag="div"
+        type="primary"
+        draggable="true"
+        @click="onGraph(Types.GraphType.Rect)"
+        class="drawStore"
+        >画库位</NButton
+      >
 
-            <!-- <NCollapseItem name="svg" title="矢量图">
+      <NCollapseItem name="image" title="门店商品">
+        <ul class="asset-bar__list">
+          <li
+            v-for="(item, idx) of assetsGoods"
+            :key="idx"
+            draggable="true"
+            @dragstart="onDragstart($event, item)"
+          >
+            <img :src="item.avatar || item.url" />
+          </li>
+        </ul>
+      </NCollapseItem>
+      <!-- <NCollapseItem name="svg" title="矢量图">
                 <ul class="asset-bar__list">
                     <li v-for="(item, idx) of assetsSvg" :key="idx" draggable="true"
                         @dragstart="onDragstart($event, item)">
@@ -44,8 +62,8 @@
                     </li>
                 </ul>
             </NCollapseItem> -->
-        </NCollapse>
-    </div>
+    </NCollapse>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -88,6 +106,15 @@ const assetsImage = computed(() => {
   }))
 })
 
+const assetsGoods = computed(() => {
+  return assetsModules.goods.map((o) => ({
+    ...o, // 保留其他属性
+    url: o.url,
+    avatar: o.avatar, // 子素材需要额外的封面
+    points: Array.isArray(o.points) ? o.points : []
+  }))
+})
+
 const assetsGif = computed(() => {
   return assetsModules.gif.map((o) => ({
     url: o.url,
@@ -117,13 +144,15 @@ function onDragstart(e: GlobalEventHandlersEventMap['dragstart'], item: Types.As
     e.dataTransfer.setData('src', item.url)
     e.dataTransfer.setData('points', JSON.stringify(item.points)) // 传递连接点信息
     e.dataTransfer.setData('type', item.url.match(/([^./]+)\.([^./]+)$/)?.[2] ?? '')
+    // 保存商品的所有原始属性
+    e.dataTransfer.setData('metadata', JSON.stringify(item))
   }
 }
 </script>
 
 <style lang="less" scoped>
 .drawStore {
-    margin: 20px;
+  margin: 20px;
 }
 .asset-bar {
   @padding: 8px;

@@ -40,6 +40,15 @@ export class DragOutsideHandlers implements Types.Handler {
           console.error(e)
         }
 
+        // 获取元数据
+        let metadata = {}
+        const metadataStr = e.dataTransfer?.getData('metadata') ?? '{}'
+        try {
+          metadata = JSON.parse(metadataStr)
+        } catch (e) {
+          console.error(e)
+        }
+
         const type = e.dataTransfer?.getData('type')
 
         if (src && type) {
@@ -79,7 +88,8 @@ export class DragOutsideHandlers implements Types.Handler {
                         : type === Types.ImageType.gif
                           ? Types.ImageType.gif
                           : Types.ImageType.other
-                      : undefined
+                      : undefined,
+                  metadata: metadata // 保存商品的元数据
                 })
 
                 this.render.setAssetSettings(group, this.render.getAssetSettings(), false)

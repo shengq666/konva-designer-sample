@@ -116,6 +116,7 @@ export interface AssetInfo {
   url: string
   avatar?: string // 子素材需要额外的封面
   points?: Array<AssetInfoPoint>
+  [key: string]: any // 其他属性
 }
 
 export enum MoveKey {
