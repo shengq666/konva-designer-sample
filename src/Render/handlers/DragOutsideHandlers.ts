@@ -34,7 +34,6 @@ export class DragOutsideHandlers implements Types.Handler {
         // 接收连接点信息
         let morePoints: Types.AssetInfoPoint[] = []
         const morePointsTxt = e.dataTransfer?.getData('points') ?? '[]'
-
         try {
           morePoints = JSON.parse(morePointsTxt)
         } catch (e) {

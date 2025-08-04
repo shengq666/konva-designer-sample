@@ -310,12 +310,15 @@ watch(() => linkSettingsModel.value, () => {
       :readonly="readonly" v-if="ready" />
   </header>
   <section>
+    <!-- 左侧组件 list/ -->
     <header v-show="!full && !readonly">
-      <AssetBar :render="render" v-if="ready"></AssetBar>
+      <AssetBar :render="render" v-if="ready"  v-model:graphType="graphType"></AssetBar>
     </header>
+    <!-- 中间画布区域 -->
     <section ref="boardElement">
       <div ref="stageElement"></div>
     </section>
+    <!-- 右侧栏 -->
     <footer v-show="!full && !readonly">
       <n-tabs type="line" size="small" animated v-model:value="tabCurrent">
         <n-tab-pane name="page" tab="页面">

@@ -162,7 +162,7 @@
                     </template>
                     连接线：折线
                 </NTooltip> -->
-                <NTooltip trigger="hover" :delay="1000">
+                <!-- <NTooltip trigger="hover" :delay="1000">
                     <template #trigger>
                         <NButton tag="div" size="tiny" quaternary :focusable="false"
                             @click="onLinkTypeChange(Types.LinkType.curve)"
@@ -175,7 +175,7 @@
                         </NButton>
                     </template>
                     连接线：折线
-                </NTooltip>
+                </NTooltip> -->
                 <!-- <NTooltip trigger="hover" :delay="1000">
                     <template #trigger>
                         <NButton tag="div" size="tiny" quaternary :focusable="false"
@@ -190,7 +190,7 @@
                     </template>
                     连接线：贝赛尔曲线
                 </NTooltip> -->
-                <NTooltip trigger="hover" :delay="1000">
+                <!-- <NTooltip trigger="hover" :delay="1000">
                     <template #trigger>
                         <NButton tag="div" size="tiny" quaternary :focusable="false"
                             @click="onLinkTypeChange(Types.LinkType.auto)"
@@ -203,7 +203,7 @@
                         </NButton>
                     </template>
                     连接线：自动
-                </NTooltip>
+                </NTooltip> -->
                 <NDivider vertical />
                 <!-- <NTooltip trigger="hover" :delay="1000">
                     <template #trigger>
@@ -218,7 +218,7 @@
                     </template>
                     画直线
                 </NTooltip> -->
-                <NTooltip trigger="hover" :delay="1000">
+                <!-- <NTooltip trigger="hover" :delay="1000">
                     <template #trigger>
                         <NButton tag="div" size="tiny" quaternary :focusable="false"
                             @click="onGraph(Types.GraphType.Curve)">
@@ -230,8 +230,8 @@
                         </NButton>
                     </template>
                     画折线
-                </NTooltip>
-                <NTooltip trigger="hover" :delay="1000">
+                </NTooltip> -->
+                <!-- <NTooltip trigger="hover" :delay="1000">
                     <template #trigger>
                         <NButton tag="div" size="tiny" quaternary :focusable="false"
                             @click="onGraph(Types.GraphType.Bezier)">
@@ -243,8 +243,8 @@
                         </NButton>
                     </template>
                     画贝赛尔曲线
-                </NTooltip>
-                <NTooltip trigger="hover" :delay="1000">
+                </NTooltip> -->
+                <!-- <NTooltip trigger="hover" :delay="1000">
                     <template #trigger>
                         <NButton tag="div" size="tiny" quaternary :focusable="false"
                             @click="onGraph(Types.GraphType.Rect)">
@@ -256,8 +256,8 @@
                         </NButton>
                     </template>
                     画矩形
-                </NTooltip>
-                <NTooltip trigger="hover" :delay="1000">
+                </NTooltip> -->
+                <!-- <NTooltip trigger="hover" :delay="1000">
                     <template #trigger>
                         <NButton tag="div" size="tiny" quaternary :focusable="false"
                             @click="onGraph(Types.GraphType.Circle)">
@@ -269,7 +269,7 @@
                         </NButton>
                     </template>
                     画圆
-                </NTooltip>
+                </NTooltip> -->
                 <NDivider vertical />
                 <NTooltip trigger="hover" :delay="1000">
                     <template #trigger>
