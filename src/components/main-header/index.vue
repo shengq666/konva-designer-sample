@@ -4,7 +4,7 @@
         <img class="main-header__logo" src="/logo.png" alt="">
         <div>
             <div class="main-header__title">
-                <span>Designer Sample</span>
+                <span>门店库位和商品陈列可视化</span>
                 <NSpin size="small" v-show="loading">
                     <template #icon>
                         <NIcon>
@@ -320,12 +320,6 @@
             1、复制、粘贴、多选、全选、删除、上一步、下一步等快捷键与一般文档编辑器类似；<br>
             2、放大缩小，【Win】鼠标上滚动下滚动，【Mac】触控板双指放大、缩小；<br>
             3、画布拖动，在空白处，【Win】右键按下移动，【Mac】control + 触控板三指移动；<br>
-        </n-card>
-    </n-modal>
-    <n-modal v-model:show="showDonate">
-        <n-card style="width: 630px" title="谢谢你的支持!" aria-modal="false">
-            <img style="width:48%;float:left;" src="/donate2.jpg">
-            <img style="width:48%;float:right;" src="/donate.jpg">
         </n-card>
     </n-modal>
 </div>
@@ -761,127 +755,6 @@ const menuOptions = [
                 ]
             }
         ]
-    }, {
-        label: '帮助',
-        key: 'help',
-        children: [
-            {
-                label: () => h(
-                    'a',
-                    {
-                        rel: 'noopenner noreferrer',
-                        onClick: () => {
-                            showShortCut.value = true
-                        }
-                    },
-                    '快捷键'
-                ),
-                key: 'shortCut',
-            },
-            {
-                type: 'divider',
-            },
-            {
-                type: 'group',
-                label: '网站',
-                key: 'website',
-                children: [
-                    {
-                        label: () => h(
-                            'a',
-                            {
-                                target: '_blank',
-                                rel: 'noopenner noreferrer'
-                            },
-                            'CSDN'
-                        ),
-                        key: 'CSDN',
-                    },
-                    {
-                        label: () => h(
-                            'a',
-                            {
-                                href: 'https://juejin.cn/column/7353542036232585225',
-                                target: '_blank',
-                                rel: 'noopenner noreferrer'
-                            },
-                            '稀土掘金'
-                        ),
-                        key: '稀土掘金',
-                    },
-                    {
-                        label: () => h(
-                            'a',
-                            {
-                                href: 'https://i.cnblogs.com/collections/detail?collectionId=14920',
-                                target: '_blank',
-                                rel: 'noopenner noreferrer'
-                            },
-                            '博客园'
-                        ),
-                        key: '博客园',
-                    },
-                ]
-            },
-            {
-                type: 'divider',
-            },
-            {
-                type: 'group',
-                label: '仓库',
-                key: 'repo',
-                children: [
-                    {
-                        label: () => h(
-                            'a',
-                            {
-                                href: 'https://github.com/xachary/konva-designer-sample',
-                                target: '_blank',
-                                rel: 'noopenner noreferrer'
-                            },
-                            'GitHub'
-                        ),
-                        key: 'GitHub',
-                    },
-                    {
-                        label: () => h(
-                            'a',
-                            {
-                                href: 'https://gitee.com/xachary/konva-designer-sample',
-                                target: '_blank',
-                                rel: 'noopenner noreferrer'
-                            },
-                            'Gitee'
-                        ),
-                        key: 'Gitee',
-                    },
-                ]
-            },
-            {
-                type: 'divider',
-            },
-            {
-                label: 'v0.0.1',
-                key: 'version',
-                disabled: true
-            },
-        ]
-    }, {
-        key: 'donate',
-        label: () => h(
-            'a',
-            {
-                rel: 'noopenner noreferrer',
-                onClick: () => {
-                    showDonate.value = true
-                },
-                style: {
-                    color: 'blue'
-                }
-            },
-            '请我喝杯奶茶呗!',
-        ),
-        children: []
     }
 ]
 
